@@ -1,0 +1,108 @@
+\section{公式测试}这节用来展示公式，交换图等。
+ 
+\subsection{行内公式}
+典范的同态$\lim_{\leftarrow F} W_r(S)\rightarrow \lim_{\leftarrow F} W_r(S/\pi S )$是同构。
+
+\subsection{整行公式}
+$$\mathbb{A}_{inf}=W(S^\flat)\cong \lim_{\leftarrow F} W_r(S)$$
+
+\subsection{多行公式}
+\begin{sloppypar}
+多行公式的情况非常多，对齐与换行的要求也各不相同。所以选择合适的环境非常重要。这份文档里无法涵盖所有情况，所以提供一个教程用以参考：\url{http://blog.csdn.net/yanxiangtianji/article/details/54767265}
+\end{sloppypar}
+
+
+
+\subsubsection{align环境}
+\begin{align*}
+    \operatorname{E} (Z_{n+1} - Z_n | X_1,..., X_n)
+    &= \operatorname{E} (S_{n+1}^2 - (n+1) \sigma^2 - S_n^2 + n \sigma^2 | X_1,..., X_n) \\
+    &= \operatorname{E} (S_{n+1}^2 - S_n^2 - (n+1) \sigma^2 + n \sigma^2 | X_1,..., X_n) \\
+    &= \operatorname{E} (X_{n+1}(X_{n+1} + 2\sum_{i=1}^n X_i) - \sigma^2 | X_1,..., X_n) \\
+    &= \operatorname{E} (X_{n+1}X_{n+1})
+       + 2\operatorname{E} (X_{n+1}) \sum_{i=1}^n X_i - \sigma^2 \\
+    &= \sigma^2  - \sigma^2 =0.
+\end{align*}
+
+\subsubsection{split环境（内嵌）}
+\begin{equation*}
+    \begin{split}
+    (a + b)^4
+      &= (a + b)^2 (a + b)^2      \\
+      &= (a^2 + 2ab + b^2)
+         (a^2 + 2ab + b^2)        \\
+      &= a^4 + 4a^3b + 6a^2b^2 + 4ab^3 + b^4
+    \end{split}
+\end{equation*}
+
+\subsubsection{带大括号的多行公式}
+\paragraph{cases}
+$$
+    f=
+    \begin{cases}
+      x + y = z,  \\
+      1 + 2 = 3.  \\
+    \end{cases}
+$$
+
+\paragraph{array}
+$$ F^{HLLC}=\left\{
+\begin{array}{rcl}
+F_L       &      & {0      <      S_L}\\
+F^*_L     &      & {S_L \leq 0 < S_M}\\
+F^*_R     &      & {S_M \leq 0 < S_R}\\
+F_R       &      & {S_R \leq 0}
+\end{array} \right. $$
+    
+\paragraph{aligned}
+\begin{equation}
+    \left\{
+     \begin{aligned}
+     \overset{.}x(t) &=A_{ci}x(t)+B_{1ci}w(t)+B_{2ci}u(t)  \\
+     z(t) &=C_{ci}x(t)+D_{ci}u(t) \\
+     \end{aligned}
+     \right.
+\end{equation}
+
+\subsection{交换图}
+\begin{sloppypar}
+强烈推荐tikzcd-editor：\url{https://github.com/yishn/tikzcd-editor}
+\end{sloppypar}
+
+\begin{center}
+\begin{tikzcd}
+    T
+    \arrow[drr, bend left, "x"]
+    \arrow[ddr, bend right, "y"]
+    \arrow[dr, dotted, "{(x,y)}" description] & & \\
+    & X \times_Z Y \arrow[r, "p"] \arrow[d, "q"]
+    & X \arrow[d, "f"] \\
+    & Y \arrow[r, "g"]
+    & Z
+\end{tikzcd}
+\end{center}
+
+\begin{center}
+    \begin{tikzcd}[row sep=scriptsize, column sep=scriptsize]
+        & f^* E_V \arrow[dl] \arrow[rr] \arrow[dd] & & E_V \arrow[dl] \arrow[dd] \\
+        f^* E \arrow[rr, crossing over] \arrow[dd] & & E \\
+        & U \arrow[dl] \arrow[rr] & & V \arrow[dl] \\
+        M \arrow[rr] & & N \arrow[from=uu, crossing over]\\
+        \end{tikzcd}
+\end{center}
+
+\begin{center}
+\begin{tikzpicture}[commutative diagrams/every diagram]
+    \node (P0) at (90:2.3cm) {$X\otimes (Y\otimes (Z\otimes T))$};
+    \node (P1) at (90+72:2cm) {$X\otimes ((Y\otimes Z)\otimes T))$} ;
+    \node (P2) at (90+2*72:2cm) {\makebox[5ex][r]{$(X\otimes (Y\otimes Z))\otimes T$}};
+    \node (P3) at (90+3*72:2cm) {\makebox[5ex][l]{$((X\otimes Y)\otimes Z)\otimes T$}};
+    \node (P4) at (90+4*72:2cm) {$(X\otimes Y)\otimes (Z\otimes T)$};
+    \path[commutative diagrams/.cd, every arrow, every label]
+    (P0) edge node[swap] {$1\otimes\phi$} (P1)
+    (P1) edge node[swap] {$\phi$} (P2)
+    (P2) edge node {$\phi\otimes 1$} (P3)
+    (P4) edge node {$\phi$} (P3)
+    (P0) edge node {$\phi$} (P4);
+\end{tikzpicture}
+\end{center}

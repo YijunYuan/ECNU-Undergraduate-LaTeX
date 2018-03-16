@@ -1,0 +1,45 @@
+\documentclass[a4paper,oneside,UTF8]{article} %A4纸，单面，UTF-8
+
+\input{packages_and_settings.tex} %加载各宏包以及本模板的主要设置
+\addbibresource{./reference/thesis-ref.bib} %加载bib文件（参考文献）
+
+\begin{document}
+\pagestyle{empty} %不对正文前的各页面使用页眉页脚
+
+\input{./preface/inner-cover.tex} %插入内封面
+
+\tableofcontents %生成目录
+
+\input{./preface/abstract.tex} %生成中英文摘要及关键词
+
+\clearpage
+\pagestyle{fancy} %开始使用页眉页脚
+\setcounter{page}{1} %论文页码从正文开始记数
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                                                        %
+\input{./body/SectionA.tex} %正文第一章                  %
+\input{./body/SectionB.tex} %正文第二章                  % 
+\input{./body/SectionC.tex} %正文第三章                  % <=一般情况下，本文件内你只需要修改这部分内容
+\input{./body/SectionD.tex} %正文第四章                  % 
+\input{./body/SectionE.tex} %正文第五章                  % 
+                                                        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\theendnotes %尾注
+
+\cleardoublepage                                      %
+\phantomsection                                       %生成参考文献
+\addcontentsline{toc}{section}{参考文献}               %
+\printbibliography[title={\heiti \zihao {-4}参考文献}] %
+
+\clearpage                                       %
+\begin{appendices}                               %
+\renewcommand{\thesection}{\chinese{section}、}  %生成附录
+\input{./ending/Appendix.tex}                    %
+\end{appendices}                                 %
+
+\clearpage                           %生成感谢
+\input{./ending/acknowledgement.tex} %
+
+\end{document}

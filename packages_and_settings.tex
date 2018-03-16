@@ -1,0 +1,100 @@
+\usepackage{fancybox,fancyvrb,shortvrb} %也许需要的宏包
+\usepackage[heading]{ctex} %用来提供中文支持
+\usepackage{amsmath} %
+\usepackage{amssymb} %数学符号，定理等环境相关宏包
+\usepackage{amsthm}  %
+\usepackage{graphicx} %插入图片所需宏包
+\usepackage{adjustbox}  %也许需要的宏包
+\usepackage{xspace} %提供一些好用的空格命令
+\usepackage{tikz-cd} %画交换图需要的宏包
+\usepackage{url} %更好的超链接显示
+\usepackage{array} %表格相关的宏包
+\usepackage{booktabs} %表格相关的宏包
+\usepackage{caption} %实现图片的多行说明
+\usepackage{float} %图片与表格的更好排版
+
+
+
+\usepackage{ulem} %更好的下划线
+
+\usepackage[ top=2.5cm, bottom=2.0cm, left=3.0cm, right=2.0cm]{geometry} %设置页边距
+
+\usepackage{fontspec}                   %设置字体需要的宏包
+\setmainfont{Times New Roman}           %设置西文字体为Times New Roman
+\setCJKmainfont{SimSun}                 %设置中文字体为宋体
+\renewcommand{\normalsize}{\zihao{-4}}  %设置正文字号为小四
+
+\linespread{1.5} %1.5倍行距
+
+\showboxdepth=5
+\showboxbreadth=5 
+
+\setcounter{secnumdepth}{5}                                                                                     %
+\ctexset { section = { name={,、},number={\chinese{section}},format={\centering \heiti \zihao {-4}} } }         %
+\ctexset { subsection = { name={（,）},number={\chinese{subsection}},format={\centering \heiti \zihao {-4}} } } %设置各级系统的编号格式
+\ctexset { subsubsection = { name={,.},number={\arabic{subsubsection}},format={\heiti \zihao {-4}} } }          %
+\ctexset { paragraph = { name={（,）},number={\arabic{paragraph}},format={\heiti \zihao {-4}} } }               %
+\ctexset { subparagraph = { name={,）},number={\arabic{subparagraph}},format={\heiti \zihao {-4}} } }           %
+
+\usepackage[bottom,perpage]{footmisc}               %脚注，显示在每页底部，编号按页重置
+\renewcommand*{\footnotelayout}{\zihao{-5}\songti}  %设置脚注为小五号宋体
+\renewcommand{\thefootnote}{[\arabic{footnote}]}    %设置脚注标记为  [编号]
+                      %脚注的反向超链接
+
+
+\usepackage{fancyhdr}               %
+\renewcommand{\headrulewidth}{0pt}  %
+\lhead{}                            %
+\chead{}                            %将页眉页脚设置为：仅在右下角显示页码
+\rhead{}                            %
+\lfoot{}                            %
+\cfoot{}                            %
+\rfoot{\thepage}                    %
+
+\usepackage{xcolor} %彩色的文字
+
+\usepackage[hidelinks]{hyperref} %各种超链接必备
+
+\usepackage{endnotes}                                                           %
+\renewcommand{\enotesize}{\zihao{-5}}                                           %
+\renewcommand{\notesname}{\heiti \zihao {-4} 尾注}                              %
+\renewcommand\enoteformat{                                                      %
+  \raggedright                                                                  %尾注的相关设置
+  \leftskip=1.8em                                                               %
+  \makebox[0pt][r]{\theenmark. \rule{0pt}{\dimexpr\ht\strutbox+\baselineskip}}  %
+}                                                                               %
+\renewcommand\makeenmark{\textsuperscript{[尾注\theenmark]}}                    %
+\usepackage{footnotebackref}  
+
+
+\newtheorem{theorem}{\heiti 定理}[section]      %
+\newtheorem*{theorem*}{\heiti 定理}             %
+\newtheorem{lemma}[theorem]{\heiti 引理}        %
+\newtheorem*{lemma*}{\heiti 引理}               %
+\newtheorem{corollary}[theorem]{\heiti 推论}    %
+\newtheorem*{corollary*}{\heiti 推论}           %
+\newtheorem{definition}[theorem]{\heiti 定义}   %
+\newtheorem*{definition*}{\heiti 定义}          %
+\newtheorem{conjecture}[theorem]{\heiti 猜想}   %将各种常用环境设置为中文
+\newtheorem*{conjecture*}{\heiti 猜想}          %
+\newtheorem{problem}[theorem]{\heiti 问题}      %
+\newtheorem*{problem*}{\heiti 问题}             %
+\newenvironment{solution}                       %
+  {\renewcommand\qedsymbol{$\blacksquare$}      %
+  \begin{proof}[\heiti \bf 解]}                 %
+  {\end{proof}}                                 %
+\renewcommand*{\proofname}{\heiti \bf 证明}     %
+
+\allowdisplaybreaks %允许公式跨页显示
+
+
+\usepackage[bibstyle=gb7714-2015,citestyle=gb7714-2015,hyperref=true,backend=biber,sorting=none]{biblatex} %使用biblatex管理文献，输出格式使用gb7714-2015标准，后端为biber
+
+\usepackage[titletoc,title]{appendix} %提供了附录支持并显示在目录中
+\renewcommand{\appendixtocname}{附录} %
+
+\newcommand{\apdx}[1] { %
+\clearpage              %重定义生成附录的命令，使得每个附录都单独成页
+\section{#1}}           %
+
+
