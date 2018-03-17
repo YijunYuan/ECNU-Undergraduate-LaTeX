@@ -4,6 +4,8 @@
 
 本模板的封面参考了[fentensoft](https://github.com/fentensoft)制作的[ecnu-latex](https://github.com/fentensoft/ecnu-latex)模板。
 
+本项目中`gb7714-2015.bbx`与`gb7714-2015.cbx`两个文件为[hushidong](https://github.com/hushidong)的所做满足GB/T7714-2015标准的[biblatex样式包](https://github.com/hushidong/biblatex-gb7714-2015)。
+
 ### 结构
 
 本模板的结构如下：
@@ -78,7 +80,7 @@
 
 #### `~\ending\Appendix.tex`
 
-这个文件定义了各个附件。需要指出的是，每个附件必须以`\apdx{title}`，其中`title`为该附件的标题。
+这个文件定义了各个附件。需要指出的是，每个附件必须以`\apdx{title}`作为开头，其中`title`为该附件的标题。
 
 另外，每个附件都是单独成页的。
 
