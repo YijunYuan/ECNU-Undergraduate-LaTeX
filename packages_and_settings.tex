@@ -97,4 +97,20 @@
 \clearpage              %重定义生成附录的命令，使得每个附录都单独成页
 \section{#1}}           %
 
+%For Algorithm
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\floatname{algorithm}{算法}
+\renewcommand{\algorithmicrequire}{\textbf{输入:}}
+\renewcommand{\algorithmicensure}{\textbf{输出:}}
 
+%使表格中的脚注也能够正常显示
+\usepackage{footnote}
+\makesavenoteenv{table}
+
+%可能会需要在用自然语言描述算法步骤时使用的宏包
+\usepackage{enumitem}
+
+%表格单元格内换行
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
