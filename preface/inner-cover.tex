@@ -1,0 +1,44 @@
+
+%请不要修改本页的任何代码！
+%请不要修改本页的任何代码！
+%请不要修改本页的任何代码！
+\thispagestyle{empty}
+\begin{titlepage}
+	\input{paper_info.tex}
+	\renewcommand{\ULthickness}{1.2pt}
+	\begin{center}\noindent \bfseries \zihao{4}{\rmfamily{\CompleteYear 届本科生学士学位论文\hfill 学校代码：\uline{10269}}}\end{center}
+	\renewcommand{\ULthickness}{0.4pt}
+	\begin{figure}[H]
+		\centering
+		\includegraphics{./figures/inner-cover(contains_font).eps}
+	\end{figure}
+
+	\begin{spacing}{3}
+		\noindent
+		\tcboxfit[width=\linewidth,height=2.8cm]{
+			\centering
+			\textbf{\zihao{1}{\rmfamily{\TitleCHS}}}
+		}
+		\tcboxfit[width=\linewidth,height=2.8cm]{
+			\centering
+			\textbf{\zihao{1}{\rmfamily{\TitleENG}}}
+		}
+	\end{spacing}
+
+	\begin{center}
+		\vspace{-4em}
+		\renewcommand{\arraystretch}{1.4
+		}
+		\bfseries\zihao{4}\rmfamily
+		\begin{tabular}{ l r }
+			姓\hfill 名：                   & \underline{{\makebox[6cm][c]{\Author}}}        \\
+			学\hfill 号：                   & \underline{{\makebox[6cm][c]{\StudentID}}}     \\
+			学\hfill 院：                   & \underline{{\makebox[6cm][c]{\Department}}}    \\
+			专\hfill 业：                   & \underline{{\makebox[6cm][c]{\Major}}}         \\
+			指\hfill 导\hfill 教\hfill 师： & \underline{{\makebox[6cm][c]{\Supervisor}}}    \\
+			职\hfill 称：                   & \underline{{\makebox[6cm][c]{\AcademicTitle}}} \\
+		\end{tabular}\\
+		\vspace{1em}
+		\CompleteYear\hspace*{1em}年\hspace*{1em}\CompleteMonth\hspace*{1em}月
+	\end{center}
+\end{titlepage}

@@ -1,0 +1,35 @@
+\section{表与图}这节用来展示表格与图片的插入。
+
+\subsection{表格}
+\par 本来LaTeX里表格的变化是非常多的，但鉴于学校要求用三线式，问题反而简单了。以下是一个例子：
+\begin{table}[htbp]\center
+    \caption{示例表格\\Example Table}
+    \begin{tabular}{lcccccl}
+     \toprule
+     。。 & 。。 & 。。 & 。。 & 。。& 。。 & 。。\\
+     \midrule
+    。。 & 。。 & 。。 & 。。 & 。。& 。。 & 。。\\
+    。。 & 。。 & 。。 & 。。 & 。。& 。。 & 。。\\
+    。。 & 。。 & 。。 & 。。 & 。。& 。。 & 。。\\
+    。。 & 。。 & 。。 & 。。 & 。。& 。。 & 。。\\
+    。。 & 。。 & 。。 & 。。 & 。。& 。。 & 。。\\
+     \bottomrule
+    \end{tabular}
+   \end{table}
+如果你有使用更复杂的表格的需求，请自行查资料完成。
+
+\subsection{插图}
+由于这份模板不考虑多栏排版，所以格式要求中所述的半栏图大小要求我们不作演示。以下是一个通栏图的演示：
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=100mm]{example-image}
+    \caption{图片测试（最小宽度）\\Image test (Minimal width)}
+  \end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=130mm]{example-image}
+    %\includegraphics[width=130mm]{./figures/你自己的图像文件}
+    \caption{图片测试（最大宽度）\\Image test (Maximal width)}
+\end{figure}
+\par 注意：这里为了减少图片上下的空白，使用了float宏包。

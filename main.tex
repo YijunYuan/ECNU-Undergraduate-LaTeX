@@ -1,0 +1,63 @@
+% !TEX root
+% !TEX program = xelatex
+% !BIB program = biber
+
+\def \PrintMode{} %在使用电子版论文时，请将此行注释。在打印纸质论文时，请保持本行命令不被注释，然后打印时选择双面打印即可。
+
+%用来控制是否启动打印模式的宏，请勿改动。
+\ifx \PrintMode \undefined
+    \def \SideMode{oneside}
+    \def \ClearPageStyle{\clearpage}
+\else
+    \def \SideMode{twoside}
+    \def \ClearPageStyle{\cleardoublepage}
+\fi
+
+\documentclass[a4paper,\SideMode,UTF8]{article} %A4纸，UTF-8
+
+\input{packages_and_settings.tex} %加载各宏包以及本模板的主要设置
+\addbibresource{./reference/thesis-ref.bib} %加载bib文件（参考文献）
+
+\begin{document}
+
+\pagestyle{empty} %不对正文前的各页面使用页眉页脚
+\newgeometry{top=2.0cm, bottom=2.0cm,left=3.18cm, right=3.18cm} %设置用于首页的页边距
+\input{./preface/inner-cover.tex} %插入内封面
+\ClearPageStyle
+
+\restoregeometry
+%生成目录
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+\tableofcontents
+\ClearPageStyle
+\pagenumbering{Roman}
+\input{./preface/abstract-CHS.tex} %生成中英文摘要及关键词
+\ClearPageStyle
+
+\input{./preface/abstract-ENG.tex} %生成中英文摘要及关键词
+\ClearPageStyle
+\pagenumbering{arabic}
+\pagestyle{fancy} %开始使用页眉页脚
+\setcounter{page}{1} %论文页码从正文开始记数
+
+\input{./body/SectionA.tex} %正文第一章
+\input{./body/SectionB.tex} %正文第二章
+\input{./body/SectionC.tex} %正文第三章
+\input{./body/SectionD.tex} %正文第四章
+\input{./body/SectionE.tex} %正文第五章
+
+\theendnotes %尾注（若没有尾注请将本行删除）
+\ClearPageStyle
+
+%生成参考文献
+\phantomsection
+\addcontentsline{toc}{section}{参考文献}
+\printbibliography[title={\sffamily \zihao {-4}参考文献}]
+\ClearPageStyle
+
+\makeapdx %生成附录
+\ClearPageStyle
+
+\makeacknowledgement %生成感谢
+
+\end{document} 

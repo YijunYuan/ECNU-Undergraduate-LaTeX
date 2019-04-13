@@ -1,0 +1,226 @@
+\usepackage[thmmarks,hyperref]{ntheorem} %定义命令环境使用的宏包
+\usepackage[heading,zihao=-4]{ctex} %用来提供中文支持
+\usepackage{amsmath,amssymb} %数学符号等相关宏包
+\usepackage{graphicx} %插入图片所需宏包
+\usepackage{xspace} %提供一些好用的空格命令
+\usepackage{tikz-cd} %画交换图需要的宏包
+\usepackage{url} %更好的超链接显示
+\usepackage{array,booktabs} %表格相关的宏包
+\usepackage{caption} %实现图片的多行说明
+\usepackage{float} %图片与表格的更好排版
+\usepackage{ulem} %更好的下划线
+
+\usepackage[top=2.5cm, bottom=2.0cm, left=3.0cm, right=2.0cm]{geometry} %设置页边距
+
+\usepackage{fontspec} %设置字体需要的宏包
+
+%设置西文字体为Times New Roman，如果没有则以开源近似字体代替
+\IfFontExistsTF{Times New Roman}{
+	\setmainfont{Times New Roman}
+}{
+	\usepackage{newtxtext,newtxmath}
+}
+
+%设置文档中文字体。优先次序：中易 > Adobe > 华文(Mac) > Fandol
+\IfFontExistsTF{SimSun}{
+	\setCJKmainfont[AutoFakeBold=2,ItalicFont=KaiTi]{SimSun}
+}{
+	\IfFontExistsTF{AdobeSongStd-Light}{
+		\setCJKmainfont[AutoFakeBold=2,ItalicFont=AdobeKaitiStd-Regular]{AdobeSongStd-Light}
+	}{
+		\IfFontExistsTF{STSong}{
+			\setCJKmainfont[AutoFakeBold=2,BoldFont=STHeiti,ItalicFont=STKaiti]{STSong}
+		}{
+			\setCJKmainfont[AutoFakeBold=2,ItalicFont=FandolKai-Regular]{FandolSong-Regular}
+		}
+	}
+}
+\IfFontExistsTF{SimHei}{
+	\setCJKsansfont[AutoFakeBold=2]{SimHei}
+}{
+	\IfFontExistsTF{AdobeHeitiStd-Regular}{
+		\setCJKsansfont[AutoFakeBold=2]{AdobeHeitiStd-Regular}
+	}{
+		\IfFontExistsTF{STHeiti}{
+			\setCJKsansfont [AutoFakeBold=2]{STHeiti}
+		}{
+			\setCJKsansfont[AutoFakeBold=2]{FandolHei-Regular}
+		}
+	}
+}
+
+
+\IfFileExists{zhlineskip.sty}{
+	%Microsoft Word 样式的1.5倍行距（按中易字体计算）
+	\usepackage[
+		restoremathleading=false,
+		UseMSWordMultipleLineSpacing,
+		MSWordLineSpacingMultiple=1.5
+	]{zhlineskip}
+}{
+	\linespread{1.621} %1.5倍行距
+}
+
+\showboxdepth=5
+\showboxbreadth=5
+
+%设置各级系统的编号格式
+\setcounter{secnumdepth}{5}
+\ctexset { section = { name={,、},number={\chinese{section}},format={\centering \sffamily \zihao {-4}} } }
+\ctexset { subsection = { name={（,）},number={\chinese{subsection}},format={\centering \sffamily \zihao {-4}} } }
+\ctexset { subsubsection = { name={,.},number={\arabic{subsubsection}},format={\sffamily \zihao {-4}} } }
+\ctexset { paragraph = { name={（,）},number={\arabic{paragraph}},format={\sffamily \zihao {-4}} } }
+\ctexset { subparagraph = { name={,）},number={\arabic{subparagraph}},format={\sffamily \zihao {-4}} } }
+
+\usepackage[bottom,perpage]{footmisc}               %脚注，显示在每页底部，编号按页重置
+\renewcommand*{\footnotelayout}{\zihao{-5}\rmfamily}  %设置脚注为小五号宋体
+\renewcommand{\thefootnote}{[\arabic{footnote}]}    %设置脚注标记为  [编号]
+
+%设置页眉页脚
+\usepackage{fancyhdr}
+\lhead{华东师范大学学士学位论文}
+\chead{}
+\rhead{\TitleCHS}
+\lfoot{}
+\cfoot{}
+\rfoot{\thepage}
+
+\usepackage{xcolor} %彩色的文字
+
+\usepackage[hidelinks]{hyperref} %各种超链接必备
+\usepackage{cleveref} %交叉引用
+
+%设置尾注
+\usepackage{endnotes}
+\renewcommand{\enotesize}{\zihao{-5}}
+\renewcommand{\notesname}{\sffamily \zihao {-4} 尾注}
+\renewcommand\enoteformat{
+	\raggedright
+	\leftskip=1.8em
+	\makebox[0pt][r]{\theenmark. \rule{0pt}{\dimexpr\ht\strutbox+\baselineskip}}
+}
+\renewcommand\makeenmark{\textsuperscript{[尾注\theenmark]}}
+\usepackage{footnotebackref}
+
+%定义证明与解环境
+\theoremstyle{nonumberplain}
+\theorembodyfont{\upshape}
+\theoremseparator{:}
+\theoremsymbol{\ensuremath{\square}}
+\newtheorem{proof}{\bfseries \sffamily 证明}
+\theoremsymbol{\ensuremath{\blacksquare}}
+\newtheorem{solution}{\bfseries \sffamily 解}
+
+%定义各种常用环境
+\theoremstyle{plain}
+\theoremseparator{.}
+\theorembodyfont{\upshape}
+\theoremsymbol{}
+\newtheorem{theorem}{\bfseries \sffamily 定理}[section]
+\renewtheorem*{theorem*}{\bfseries \sffamily 定理}
+\newtheorem{lemma}[theorem]{\bfseries \sffamily 引理}
+\renewtheorem*{lemma*}{\bfseries \sffamily 引理}
+\newtheorem{corollary}[theorem]{\bfseries \sffamily 推论}
+\renewtheorem*{corollary*}{\bfseries \sffamily 推论}
+\newtheorem{definition}[theorem]{\bfseries \sffamily 定义}
+\renewtheorem*{definition*}{\bfseries \sffamily 定义}
+\newtheorem{conjecture}[theorem]{\bfseries \sffamily 猜想}
+\renewtheorem*{conjecture*}{\bfseries \sffamily 猜想}
+\newtheorem{problem}[theorem]{\bfseries \sffamily 问题}
+\renewtheorem*{problem*}{\bfseries \sffamily 问题}
+\newtheorem{proposition}[theorem]{\bfseries \sffamily 命题}
+\renewtheorem*{proposition*}{\bfseries \sffamily 命题}
+\newtheorem{remark}[theorem]{\bfseries \sffamily 注记}
+\renewtheorem*{remark*}{\bfseries \sffamily 注记}
+\newtheorem{example}[theorem]{\bfseries \sffamily 例}
+\renewtheorem*{example*}{\bfseries \sffamily 例}
+
+%设置各种常用环境的交叉引用格式
+\crefformat{theorem}{#2\bfseries{\sffamily 定理} #1#3}
+\crefformat{lemma}{#2\bfseries{\sffamily 引理} #1#3}
+\crefformat{corollary}{#2\bfseries{\sffamily 推论} #1#3}
+\crefformat{definition}{#2\bfseries{\sffamily 定义} #1#3}
+\crefformat{conjecture}{#2\bfseries{\sffamily 猜想} #1#3}
+\crefformat{problem}{#2\bfseries{\sffamily 问题} #1#3}
+\crefformat{proposition}{#2\bfseries{\sffamily 命题} #1#3}
+\crefformat{remark}{#2\bfseries{\sffamily 注记} #1#3}
+\crefformat{example}{#2\bfseries{\sffamily 例} #1#3}
+
+%允许公式跨页显示
+\allowdisplaybreaks
+
+%屏蔽无关的Warning
+\usepackage{silence}
+\WarningFilter*{biblatex}{Conflicting options.\MessageBreak'eventdate=iso' requires 'seconds=true'.\MessageBreak Setting 'seconds=true'}
+
+%使用biblatex管理文献，输出格式使用gb7714-2015标准，后端为biber
+\usepackage[backend=biber,style=gb7714-2015,hyperref=true]{biblatex}
+
+%提供了附录支持并显示在目录中
+\usepackage[titletoc,title]{appendix}
+\renewcommand{\appendixtocname}{附录}
+
+%重定义生成附录的命令，使得每个附录都单独成页
+\newcommand{\apdx}[1] {
+	\clearpage
+	\section{#1}}
+
+%生成附录，请勿改动
+\newcommand{\makeapdx}{
+	\IfFileExists{./ending/Appendix.tex}{
+	\clearpage
+	\begin{appendices}
+		\renewcommand{\thesection}{\chinese{section}、}
+		\input{./ending/Appendix.tex}
+	\end{appendices}
+	}{}
+}
+
+%生成感谢，请勿改动
+\newcommand{\makeacknowledgement}{
+	\clearpage
+	\input{./ending/acknowledgement.tex}
+}
+
+%For Algorithm
+\usepackage{algorithm,algorithmicx,algpseudocode}
+\floatname{algorithm}{算法}
+\renewcommand{\algorithmicrequire}{\textbf{输入:}}
+\renewcommand{\algorithmicensure}{\textbf{输出:}}
+
+%使表格中的脚注也能够正常显示
+%\usepackage{footnote}
+%\makesavenoteenv{table}
+
+%可能会需要在用自然语言描述算法步骤时使用的宏包
+\usepackage{enumitem}
+
+%表格单元格内换行
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+
+%显示 1、2级标题
+\setcounter{tocdepth}{2}
+
+%设置目录字体
+\usepackage{tocloft}
+\renewcommand{\contentsname}{\hfill \bfseries \sffamily \zihao{-4} 目\hspace*{2em}录 \hfill}
+\renewcommand{\cftaftertoctitle}{\hfill}
+\renewcommand{\cfttoctitlefont}{\sffamily}
+\renewcommand{\cftsubsubsecfont}{\sffamily}
+\renewcommand{\cftsubsecfont}{\sffamily}
+\renewcommand{\cftsecfont}{\bfseries \sffamily}
+
+%灵活的行距定义（用于封面）
+\usepackage{setspace}
+
+%提供封面标题的自动缩放
+\usepackage[many]{tcolorbox}
+\tcbset{
+  colframe=white,
+  colback=white,
+  size=tight,
+  nobeforeafter,
+  valign=center,
+  fit fontsize macros,
+  fit algorithm=areasize
+}
