@@ -4,26 +4,25 @@
 %请不要修改本页的任何代码！
 \thispagestyle{empty}
 \begin{titlepage}
+	\captionsetup{belowskip=0pt}
 	\input{paper_info.tex}
 	\renewcommand{\ULthickness}{1.2pt}
 	\begin{center}\noindent \bfseries \zihao{4}{\rmfamily{\CompleteYear 届本科生学士学位论文\hfill 学校代码：\uline{10269}}}\end{center}
-	\renewcommand{\ULthickness}{0.4pt}
+
 	\begin{figure}[H]
 		\centering
 		\includegraphics{./figures/inner-cover(contains_font).eps}
 	\end{figure}
 
+	\vspace{-1em}
 	\begin{spacing}{3}
-		\noindent
-		\tcboxfit[width=\linewidth,height=2.8cm]{
-			\centering
-			\textbf{\zihao{1}{\rmfamily{\TitleCHS}}}
-		}
-		\tcboxfit[width=\linewidth,height=2.8cm]{
-			\centering
-			\textbf{\zihao{1}{\rmfamily{\TitleENG}}}
-		}
+		\centering
+		\noindent\textbf{\zihao{1}{\rmfamily{\expandafter\uline\expandafter{\TitleCHS}}}}
+
+		\noindent\textbf{\zihao{1}{\rmfamily{\expandafter\uline\expandafter{\TitleENG}}}}
 	\end{spacing}
+
+	\renewcommand{\ULthickness}{0.4pt}
 
 	\begin{center}
 		\vspace{-4em}
