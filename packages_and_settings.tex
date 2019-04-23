@@ -74,7 +74,7 @@
 
 \usepackage[bottom,perpage]{footmisc}               %脚注，显示在每页底部，编号按页重置
 \renewcommand*{\footnotelayout}{\zihao{-5}\rmfamily}  %设置脚注为小五号宋体
-\renewcommand{\thefootnote}{[\arabic{footnote}]}    %设置脚注标记为  [编号]
+\renewcommand{\thefootnote}{\textcircled{\arabic{footnote}}}    %设置脚注标记为  [编号]
 
 %设置页眉页脚
 \usepackage{fancyhdr}
@@ -168,15 +168,15 @@
 \renewcommand{\algorithmicrequire}{\textbf{输入:}}
 \renewcommand{\algorithmicensure}{\textbf{输出:}}
 
-%使表格中的脚注也能够正常显示
-%\usepackage{footnote}
-%\makesavenoteenv{table}
-
 %可能会需要在用自然语言描述算法步骤时使用的宏包
 \usepackage{enumitem}
 
 %表格单元格内换行
 \newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+
+%设置图、表的编号格式
+\renewcommand{\thefigure}{\arabic{section}-\arabic{figure}}
+\renewcommand {\thetable} {\arabic{section}-\arabic{table}}
 
 %显示 1、2级标题
 \setcounter{tocdepth}{2}
