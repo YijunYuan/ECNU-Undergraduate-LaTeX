@@ -52,10 +52,17 @@
 %生成参考文献
 \phantomsection
 \addcontentsline{toc}{section}{参考文献}
-\printbibliography[title={\sffamily \zihao {-4}参考文献}]
+\printbibliography[title={\centerline{\sffamily \zihao {-3}参考文献}}]
 \ClearPageStyle
 
-\makeapdx %生成附录
+%生成附录
+\phantomsection
+\addtocontents{toc}{\setcounter{tocdepth}{1}}
+\addcontentsline{toc}{section}{附录}
+\setcounter{subsection}{0}
+\ctexset { subsection = { name={,},number={\arabic{subsection}},format={\sffamily \zihao {-4}} } }
+\ctexset { subparagraph = { name={(,)},number={\arabic{subparagraph}},format={\sffamily \zihao {-4}},indent=2em } }
+\input{./ending/Appendix.tex}
 \ClearPageStyle
 
 \makeacknowledgement %生成感谢

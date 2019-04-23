@@ -66,11 +66,11 @@
 
 %设置各级系统的编号格式
 \setcounter{secnumdepth}{5}
-\ctexset { section = { name={,、},number={\chinese{section}},format={\centering \sffamily \zihao {-4}} } }
-\ctexset { subsection = { name={（,）},number={\chinese{subsection}},format={\centering \sffamily \zihao {-4}} } }
-\ctexset { subsubsection = { name={,.},number={\arabic{subsubsection}},format={\sffamily \zihao {-4}} } }
-\ctexset { paragraph = { name={（,）},number={\arabic{paragraph}},format={\sffamily \zihao {-4}} } }
-\ctexset { subparagraph = { name={,）},number={\arabic{subparagraph}},format={\sffamily \zihao {-4}} } }
+\ctexset { section = { name={,.},number={\arabic{section}},format={\sffamily \zihao {-4}} } }
+\ctexset { subsection = { name={,},number={\arabic{section}.\arabic{subsection}},format={\sffamily \zihao {-4}} } }
+\ctexset { subsubsection = { name={,},number={\arabic{section}.\arabic{subsection}.\arabic{subsubsection}},format={\sffamily \zihao {-4}},indent=2em } }
+\ctexset { paragraph = { name={,},number={\arabic{section}.\arabic{subsection}.\arabic{subsubsection}.\arabic{paragraph}},format={\sffamily \zihao {-4}},indent=4em } }
+\ctexset { subparagraph = { name={,)},number={\arabic{subparagraph}},format={\sffamily \zihao {-4}},indent=6em } }
 
 \usepackage[bottom,perpage]{footmisc}               %脚注，显示在每页底部，编号按页重置
 \renewcommand*{\footnotelayout}{\zihao{-5}\rmfamily}  %设置脚注为小五号宋体
@@ -155,26 +155,6 @@
 
 %使用biblatex管理文献，输出格式使用gb7714-2015标准，后端为biber
 \usepackage[backend=biber,style=gb7714-2015,hyperref=true]{biblatex}
-
-%提供了附录支持并显示在目录中
-\usepackage[titletoc,title]{appendix}
-\renewcommand{\appendixtocname}{附录}
-
-%重定义生成附录的命令，使得每个附录都单独成页
-\newcommand{\apdx}[1] {
-	\clearpage
-	\section{#1}}
-
-%生成附录，请勿改动
-\newcommand{\makeapdx}{
-	\IfFileExists{./ending/Appendix.tex}{
-	\clearpage
-	\begin{appendices}
-		\renewcommand{\thesection}{\chinese{section}、}
-		\input{./ending/Appendix.tex}
-	\end{appendices}
-	}{}
-}
 
 %生成感谢，请勿改动
 \newcommand{\makeacknowledgement}{
