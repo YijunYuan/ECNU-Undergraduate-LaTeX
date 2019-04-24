@@ -175,7 +175,14 @@
 
 %设置图、表的编号格式
 \renewcommand{\thefigure}{\arabic{section}-\arabic{figure}}
-\renewcommand {\thetable} {\arabic{section}-\arabic{table}}
+\renewcommand{\thetable}{\arabic{section}-\arabic{table}}
+%%每个section开始重置图、表的计数器
+\makeatletter
+\@addtoreset{table}{section}
+\makeatother
+\makeatletter
+\@addtoreset{figure}{section}
+\makeatother
 
 %显示 1、2级标题
 \setcounter{tocdepth}{2}
