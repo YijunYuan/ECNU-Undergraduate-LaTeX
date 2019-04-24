@@ -73,7 +73,7 @@
 
 \usepackage[bottom,perpage]{footmisc}               %脚注，显示在每页底部，编号按页重置
 \renewcommand*{\footnotelayout}{\zihao{-5}\rmfamily}  %设置脚注为小五号宋体
-\renewcommand{\thefootnote}{\textcircled{\arabic{footnote}}}    %设置脚注标记为  [编号]
+\renewcommand{\thefootnote}{\textcircled{\arabic{footnote}}}    %设置脚注标记为①，②，...
 
 %设置页眉页脚
 \usepackage{fancyhdr}
@@ -154,6 +154,8 @@
 
 %使用biblatex管理文献，输出格式使用gb7714-2015标准，后端为biber
 \usepackage[backend=biber,style=gb7714-2015,hyperref=true]{biblatex}
+%将参考文献字体设置为五号
+\renewcommand*{\bibfont}{\zihao{5}}
 
 %生成感谢，请勿改动
 \newcommand{\makeacknowledgement}{
@@ -189,13 +191,15 @@
 
 %设置目录字体
 \usepackage{tocloft}
-\renewcommand{\contentsname}{\hfill \bfseries \sffamily \zihao{-4} 目\hspace*{2em}录 \hfill}
+\renewcommand{\contentsname}{\centerline{目录}}
 \renewcommand{\cftaftertoctitle}{\hfill}
-\renewcommand{\cfttoctitlefont}{\sffamily}
-\renewcommand{\cftsubsubsecfont}{\sffamily}
-\renewcommand{\cftsubsecfont}{\sffamily}
-\renewcommand{\cftsecfont}{\bfseries \sffamily}
+\renewcommand{\cfttoctitlefont}{\sffamily \bfseries \zihao{-3}}
+\renewcommand{\cftsubsubsecfont}{\rmfamily}
+\renewcommand{\cftsubsecfont}{\rmfamily}
+\renewcommand{\cftsecfont}{\rmfamily}
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecfont}{}
+\renewcommand{\cftsecpagefont}{}
 
 %灵活的行距定义（用于封面）
 \usepackage{setspace}

@@ -28,7 +28,9 @@
 \restoregeometry
 %生成目录
 \addtocontents{toc}{\protect\thispagestyle{empty}}
-\tableofcontents
+\begin{spacing}{1}
+    \tableofcontents
+\end{spacing}
 \ClearPageStyle
 \pagenumbering{Roman}
 \input{./preface/abstract-CHS.tex} %生成中英文摘要及关键词
@@ -52,7 +54,7 @@
 %生成参考文献
 \phantomsection
 \addcontentsline{toc}{section}{参考文献}
-\printbibliography[title={\centerline{\sffamily \zihao {-3}参考文献}}]
+\printbibliography[title={\centerline{\bfseries\sffamily \zihao {-3}参考文献}}]
 \ClearPageStyle
 
 %生成附录
@@ -60,8 +62,8 @@
 \addtocontents{toc}{\setcounter{tocdepth}{1}}
 \addcontentsline{toc}{section}{附录}
 \setcounter{subsection}{0}
-\ctexset { subsection = { name={,},number={\arabic{subsection}},format={\sffamily \zihao {-4}} } }
-\ctexset { subparagraph = { name={(,)},number={\arabic{subparagraph}},format={\sffamily \zihao {-4}},indent=2em } }
+\ctexset { subsection = { name={,},number={\arabic{subsection}},format={\rmfamily \zihao {5}} } }
+\ctexset { subparagraph = { name={(,)},number={\arabic{subparagraph}},format={\rmfamily \zihao {5}},indent=2em } }
 \input{./ending/Appendix.tex}
 \ClearPageStyle
 
