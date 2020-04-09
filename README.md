@@ -1,6 +1,6 @@
 # ECNU-Undergraduate-LaTeX
 
-### 华东师范大学本科生毕业论文模板
+### 华东师范大学本科生毕业论文模板（不再维护）
 
 下载地址：[Link](https://github.com/YijunYuan/ECNU-Undergraduate-LaTeX/archive/master.zip)
 
